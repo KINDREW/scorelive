@@ -89,7 +89,7 @@ class _CompetitionState extends State<Competition> {
                               child: Text(
                                 "Top",
                                 style: TextStyle(
-                                    fontSize: 15,
+                                    fontSize: 15,fontFamily: "Mulish",
                                     color: currentTab == 0
                                         ? Colors.white
                                         : Color(0xFF5D5C64)),
@@ -120,7 +120,7 @@ class _CompetitionState extends State<Competition> {
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text("Region",
                                       style: TextStyle(
-                                        fontSize: 15,
+                                        fontSize: 15,fontFamily: "Mulish",
                                         color: currentTab == 1
                                             ? Colors.white
                                             : Color(0xFF5D5C64),
@@ -149,7 +149,7 @@ class _CompetitionState extends State<Competition> {
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text("Favorites",
                                       style: TextStyle(
-                                          fontSize: 15,
+                                          fontSize: 15,fontFamily: "Mulish",
                                           color: currentTab == 2
                                               ? Colors.white
                                               : Color(0xFF5D5C64))),

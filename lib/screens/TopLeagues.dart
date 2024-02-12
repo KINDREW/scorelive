@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:scorelive/models/Competitions.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:scorelive/screens/CompetitionDetails.dart';
 
 class TopLeagues extends StatefulWidget {
   const TopLeagues({super.key});
@@ -20,7 +21,6 @@ Future getLeagues() async {
     headers: {'X-Auth-Token': 'a974575eb458469aaedfb22e103f1931'},
   );
   var jsonData = jsonDecode(response.body);
-  print(jsonData);
   leagues = [];
   for (var eachLeague in jsonData["competitions"]) {
     var league = Leagues(
@@ -95,9 +95,19 @@ class _TopLeaguesState extends State<TopLeagues> {
                             ),
                           ),
                           onTap: () {
-                            Navigator.pushNamed(context, "/leaguedetails",
-                                arguments: leagues[index].leagueCode);
-                          },
+
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => CompetitionDetails(
+                                  leagueName: leagues[index].leagueName,
+                                  leagueCode: leagues[index].leagueCode,
+                                  country: leagues[index].country,
+                                  leagueFlag: leagues[index].leagueFlag,
+                                ),
+                              ),
+                            );
+                            },
                         ),
                       );
                     });

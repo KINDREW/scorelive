@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scorelive/screens/CompetitionDetails.dart';
 import 'package:scorelive/screens/MainPage.dart';
 
 void main() {
@@ -14,6 +15,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: MainPage(
       ),
+
+      routes: {
+        "/competiondetails" : (contex)=> CompetitionDetails(leagueName: '', leagueCode: '', country: '', leagueFlag: '',)
+      },
     );
   }
 }
