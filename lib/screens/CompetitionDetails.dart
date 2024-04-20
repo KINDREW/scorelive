@@ -2,7 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:scorelive/screens/Fixtures.dart';
+import 'package:scorelive/screens/Results.dart';
 import 'package:scorelive/screens/Standings.dart';
+import 'package:scorelive/screens/Stats.dart';
 
 class CompetitionDetails extends StatefulWidget {
   String leagueName;
@@ -30,8 +33,10 @@ class _CompetitionDetailsState extends State<CompetitionDetails> {
   Widget build(BuildContext context) {
     String code = widget.leagueCode;
     List screens = [
-      Standings(leagueCode: code)
-      
+      Results(leagueCode:code),
+      Fixtures(),
+      Standings(leagueCode: code),
+      Stats(leagueCode: code,)
     ];
     return Scaffold(
       backgroundColor: Colors.black,
@@ -230,8 +235,8 @@ class _CompetitionDetailsState extends State<CompetitionDetails> {
                 ],
               ),
             ),
-            screens[currentTab]
-            
+            Expanded(child: screens[currentTab])
+
             ],
         )),
       ),
